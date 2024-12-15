@@ -1,4 +1,5 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+import { Image } from 'expo-image';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -6,6 +7,9 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import { Link } from 'expo-router';
+
+const home = require('@/assets/images/home.svg');
 
 export default function TabTwoScreen() {
   return (
@@ -22,6 +26,10 @@ export default function TabTwoScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
+      <Image source={home} style={{width: 100, height: 100}} tintColor={'red'} />
+      <Link href="/">
+        <ThemedText type="link">Home</ThemedText>
+      </Link>
       <ThemedText>This app includes example code to help you get started.</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
